@@ -90,11 +90,16 @@
   }
 </style>
 <header class="header">
-      <h1>Hello, {{ title }}</h1>
+      <nav>
+        <ul>
+          <li><a routerLink="/photos" routerLinkActive="active" ariaCurrentWhenActive="page">Photos</a></li>
+          <li><a routerLink="/favorites" routerLinkActive="active" ariaCurrentWhenActive="page">Favorites</a></li>
+        </ul>
+      </nav>
 </header>
 <main class="main">
   <div class="content">
-    <app-login></app-login>
+    <router-outlet></router-outlet>
     <!--
     <div class="left-side">
       <h1>Hello, {{ title }}</h1>
@@ -109,4 +114,4 @@
   <p>Created with 🖤❤️‍️ and hard work</p>
 </footer>
 
-<router-outlet />
+

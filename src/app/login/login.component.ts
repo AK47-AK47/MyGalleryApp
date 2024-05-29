@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, } from '@angular/forms';
 
 import { LoginAuthenticationService } from '../services/login-authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { LoginAuthenticationService } from '../services/login-authentication.ser
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private loginAuthService: LoginAuthenticationService) {}
+  constructor(private loginAuthService: LoginAuthenticationService, private router:Router) {}
 
   loginForm = new FormGroup({
     username: new FormControl(''),
@@ -22,10 +23,18 @@ export class LoginComponent {
     console.log('Your form data:', this.loginForm.value);
     
     const credentials = this.loginForm.value;
-
+    
     this.loginAuthService.authenticateUser(
       credentials.username,
       credentials.password
-    ).subscribe((isLoggedIn) => {console.log('access:', isLoggedIn);});
+    ).subscribe(isAuthenticated => {
+      if(isAuthenticated){
+        console.log('Correct credentials. Logged in:', isAuthenticated);
+        this.router.navigateByUrl('/photos');
+      }
+      else{
+        console.log('Wrong credentials. Logged in:', isAuthenticated);
+      }
+    })
   }
 }
