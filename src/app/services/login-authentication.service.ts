@@ -7,7 +7,26 @@ import { BehaviorSubject, Observable, } from 'rxjs';
 })
 export class LoginAuthenticationService {
   /**
-   * implement with BehaviorSubject<boolean> subclass of Observable, for multicasting
+   *  Implement with Observable
+   */
+  public AuthObservable: Observable<boolean> | undefined;
+
+  constructor(private router: Router) {}
+
+  authenticateUser(username: string | null | undefined, password: string | null | undefined){
+    this.AuthObservable = new Observable((subscriber) => {
+      if (username === 'test' && password === '12345') {
+        subscriber.next(true);
+      } else {
+        subscriber.next(false);
+      }
+    });
+
+    return this.AuthObservable;
+  }
+
+  /**
+   * Implement with BehaviorSubject<boolean> subclass of Observable, for multicasting
    *
   public AuthObservable = new BehaviorSubject<boolean>(false);
 
@@ -29,28 +48,4 @@ export class LoginAuthenticationService {
     return this.AuthObservable;
   }
   */
-  /**
-   *  implement with Observable
-   */
-  public AuthObservable: Observable<boolean> | undefined;
-
-  constructor(private router: Router) {}
-
-  authenticateUser(
-    username: string | null | undefined,
-    password: string | null | undefined
-  ) {
-    console.log('data I:', username);
-    console.log('data II:', password);
-
-    this.AuthObservable = new Observable((subscriber) => {
-      if (username === 'test' && password === '12345') {
-        subscriber.next(true);
-      } else {
-        subscriber.next(false);
-      }
-    });
-
-    return this.AuthObservable;
-  }
 }

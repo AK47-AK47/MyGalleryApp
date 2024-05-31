@@ -13,17 +13,25 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   /**
    * implement with  Observable
    */
-  authService.AuthObservable?.subscribe((isAuthenticated) => {
-    if (isAuthenticated) {
-      console.log('Guard response to authentication:', isAuthenticated);
-      isAuth = true;
-    } else {
-      console.log('Guard response to authentication:', isAuthenticated);
-      router.navigateByUrl('/login');
-      isAuth = false;
-    }
-  });
+  
+  if (authService.AuthObservable){
+    authService.AuthObservable.subscribe((isAuthenticated) => {
+      console.log('In Guard -> AuthService execution -> ');
+      if (isAuthenticated) {
+        console.log('Guard response to authentication:', isAuthenticated);
+        isAuth = true;
+      } else {
+        console.log('Guard response to authentication:', isAuthenticated);
+        router.navigateByUrl('/login');
+        isAuth = false;
+      }
+    });
+  }
+  else{
+    console.log("In Guard -> no AuthService execution -> isAyth:", isAuth);
+  }
   return isAuth;
+
   /**
    * implement with BehaviorSubject<boolean> subclass of Observable 
    * 

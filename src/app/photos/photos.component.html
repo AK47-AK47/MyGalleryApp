@@ -1,1 +1,11 @@
-<p>photos works!</p>
+<div class="photo-container" >
+    <mat-card class="photo-card" *ngFor="let i of photoIndexes">
+        <mat-card-header>
+            <mat-card-title color="accent">Photo #{{i}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://picsum.photos/id/{{i}}/300/300" alt="Random Photo">
+        <mat-card-actions >
+            <button mat-stroked-button class="photo-button" >Add to Favorites</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
