@@ -4,13 +4,13 @@
   background-color: #e10a60;
 }
 
-.photo-button{
+.add-photo-button{
     color: white !important;
     background-color: black;
     border: 1px solid rgb(43, 33, 49) !important;
 }
 
-.photo-button:hover{
+.add-photo-button:hover{
     color: white!important;
     background-color: #dc3c7f;
 }

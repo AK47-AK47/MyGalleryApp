@@ -1,11 +1,13 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+//store
+import { Store } from '@ngrx/store';
+import { addPhotoToFavs } from '../store/favoritePhotos.actions';
+import { favoritePhotoState } from '../store/favoritePhotos.reducer';
+import { Subscription } from 'rxjs';
 
-/**
- * @title Photos Cards with multiple sections
- */
 @Component({
   selector: 'app-photos',
   standalone: true,
@@ -13,15 +15,35 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './photos.component.html',
   styleUrl: './photos.component.css',
 })
-export class PhotosComponent {
+export class PhotosComponent implements OnInit, OnDestroy {
+  photoIDs: Array<number> = [];
+  private favoritePhotoSubscription$:Subscription = new Subscription;
   
-  photoIndexes: Array<number> = [];
+  //Attension to STore type declaration (take it from app.config.ts where is provided on all app)
+  constructor(private store: Store<{ favoritePhotoState: favoritePhotoState }>) {}
 
-  constructor() {
+  ngOnInit() {
     //photoIndex = new Array(100);
     for (let i = 0; i < 100; i++) {
-      this.photoIndexes[i] = i;
+      this.photoIDs[i] = i;
     }
-    console.log('photoIndexes:', this.photoIndexes);
+    console.log('photoIndexes:', this.photoIDs);
+  }
+
+  addToFavorites(phoID: number) {
+    console.log('Add photo #' + phoID + ' to favorites');
+    this.store.dispatch(addPhotoToFavs({ photoID: phoID }));
+
+    //lets Observe what we add on favoritePhotoState 
+    this.favoritePhotoSubscription$ = this.store.select('favoritePhotoState').subscribe((state) => {
+      console.log(state.favoritePhotoList);
+    });
+    //***AFTER ADD PHOTO DESABLE BUTTON */
+  }
+
+  ngOnDestroy(): void {
+    if(this.favoritePhotoSubscription$){
+      this.favoritePhotoSubscription$.unsubscribe();
+    }
   }
 }

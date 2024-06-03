@@ -29,6 +29,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   }
   else{
     console.log("In Guard -> no AuthService execution -> isAyth:", isAuth);
+    router.navigateByUrl('/login');
   }
   return isAuth;
 

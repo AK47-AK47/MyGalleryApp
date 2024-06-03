@@ -1,0 +1,26 @@
+.photo-card {
+  max-width: 300px;
+  color:black;
+  background-color: #e10a60;
+}
+
+.remove-photo-button{
+    color: white !important;
+    background-color: black;
+    border: 1px solid rgb(43, 33, 49) !important;
+}
+
+.remove-photo-button:hover{
+    color: white !important;
+    background-color: #dc3c7f;
+}
+
+.photo-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
+  align-content: space-around;
+  gap: 30px 5px;/* x axis, y axis*/
+}
