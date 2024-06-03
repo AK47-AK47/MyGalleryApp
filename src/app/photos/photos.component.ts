@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Store } from '@ngrx/store';
 import { addPhotoToFavs } from '../store/favoritePhotos.actions';
 import { favoritePhotoState } from '../store/favoritePhotos.reducer';
+//rxjs
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -36,7 +37,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
 
     //lets Observe what we add on favoritePhotoState 
     this.favoritePhotoSubscription$ = this.store.select('favoritePhotoState').subscribe((state) => {
-      console.log(state.favoritePhotoList);
+      console.log("favorite IDs Array:",state.favoritePhotoList);
     });
     //***AFTER ADD PHOTO DESABLE BUTTON */
   }

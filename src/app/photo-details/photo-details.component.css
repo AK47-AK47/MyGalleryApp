@@ -1,0 +1,9 @@
+.remove-photo-button{
+    color: white !important;
+    background-color: black;
+    border: 1px solid rgb(43, 33, 49) !important;
+}
+
+.remove-photo-button:hover{
+    opacity: 75%;
+}

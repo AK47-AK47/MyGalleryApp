@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent, title:"Login" },
   { path: 'photos', component: PhotosComponent, canActivate:[authGuard], title:"Photos" },
   { path: 'favorites', component: FavoritesComponent, canActivate:[authGuard], title:"Favorite Photos" },
-  { path: 'photo-details', component: PhotoDetailsComponent, canActivate:[authGuard], title:"Favorite Photo Details"},
+  { path: 'photo-details/:id', component: PhotoDetailsComponent, canActivate:[authGuard], title:"Favorite Photo Details"},
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Here, path: '' means to use the initial relative URL ('').
   { path: '**', component: PageNotFoundComponent, title:"Sorry for that" }, // Wildcard route for a 404 page
 ];
