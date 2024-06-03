@@ -1,13 +1,14 @@
 <div class="photo-container" >
     @if(isFavoriteListEmpty) { 
-        <p>There are no favorite photos to show</p>
+        <p>There are no favorite photos to show. <a routerLink="/photos" class="go-back-button" >Go back to Photos gallery</a></p>
+        
     }
     @else{
         <div *ngFor="let id of favoritePhotoIDs$ | async">
-            <a routerLink="/photo-details/{{id}}" routerLinkActive="active" ariaCurrentWhenActive="page" >
+            <a routerLink="/photo-details/{{id}}" routerLinkActive="active" ariaCurrentWhenActive="page" class="title">
                 <mat-card class="photo-card">
                     <mat-card-header>
-                        <mat-card-title>Photo #{{id}} </mat-card-title>
+                        <mat-card-title >Photo #{{id}} </mat-card-title>
                     </mat-card-header>
                     <img mat-card-image src="https://picsum.photos/id/{{id}}/300/300" alt="Random Photo">
                 </mat-card>

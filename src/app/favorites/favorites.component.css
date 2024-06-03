@@ -20,6 +20,10 @@
   gap: 30px 5px;/* x axis, y axis*/
 }
 
-a {
+.title {
     text-decoration: none;
+}
+
+.go-back-button{
+  color:#e10a60!important;
 }
