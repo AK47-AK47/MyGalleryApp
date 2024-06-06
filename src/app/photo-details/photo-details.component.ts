@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 //store
 import { Store } from '@ngrx/store';
-import { favoritePhotoState } from '../store/favoritePhotos.reducer';
+import { favoritePhotoState } from '../store/favoritePhotos.model';
 import { removePhotoFromFavs } from '../store/favoritePhotos.actions';
 import { selectFavoritePhotoIDs } from '../store/favoritePhotos.selector';
 //rxjs

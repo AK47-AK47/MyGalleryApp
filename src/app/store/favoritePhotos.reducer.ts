@@ -1,9 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { addPhotoToFavs, removePhotoFromFavs } from "./favoritePhotos.actions";
-
-export interface favoritePhotoState {
-  favoritePhotoList: Array<number>;
-}
+import { favoritePhotoState } from "./favoritePhotos.model";
 
 const initialState: favoritePhotoState = {
   favoritePhotoList: [],

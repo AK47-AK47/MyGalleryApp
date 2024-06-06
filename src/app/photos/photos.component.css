@@ -15,6 +15,12 @@
     background-color: #dc3c7f;
 }
 
+.add-photo-button:disabled,
+.add-photo-button[disabled]{
+  border: 1px solid #999999!important;
+  background-color: #cccccc;
+  color: #666666!important;
+}
 
 .photo-container{
   display: flex;

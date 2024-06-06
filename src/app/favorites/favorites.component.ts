@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 //store
 import { Store } from '@ngrx/store';
 import { removePhotoFromFavs } from '../store/favoritePhotos.actions';
-import { favoritePhotoState } from '../store/favoritePhotos.reducer';
+import { favoritePhotoState } from '../store/favoritePhotos.model';
 import { selectFavoritePhotoIDs } from '../store/favoritePhotos.selector';
 //rxjs
 import { Observable, Subscription } from 'rxjs';

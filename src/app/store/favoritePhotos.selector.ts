@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { favoritePhotoState } from "./favoritePhotos.reducer";
+import { favoritePhotoState } from "./favoritePhotos.model";
 
 export const favoritePhotoStateSelector = createFeatureSelector<favoritePhotoState>('favoritePhotoState');
 
