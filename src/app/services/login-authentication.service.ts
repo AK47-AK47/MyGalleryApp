@@ -7,45 +7,25 @@ import { BehaviorSubject, Observable, } from 'rxjs';
 })
 export class LoginAuthenticationService {
   /**
-   *  Implement with Observable
+   *  Implement with simplicity
    */
-  public AuthObservable: Observable<boolean> | undefined;
+  public isLoggedIn: boolean = false;
 
   constructor(private router: Router) {}
 
   authenticateUser(username: string | null | undefined, password: string | null | undefined){
-    this.AuthObservable = new Observable((subscriber) => {
-      if (username === 'test' && password === '12345') {
-        subscriber.next(true);
-      } else {
-        subscriber.next(false);
-      }
-    });
-
-    return this.AuthObservable;
-  }
-
-  /**
-   * Implement with BehaviorSubject<boolean> subclass of Observable, for multicasting
-   *
-  public AuthObservable = new BehaviorSubject<boolean>(false);
-
-  constructor(private router: Router) {}
-
-  authenticateUser(
-    username: string | null | undefined,
-    password: string | null | undefined
-  ) {
-    console.log('data I:', username);
-    console.log('data II:', password);
-
+    console.log("AuthService execution ->")
     if (username === 'test' && password === '12345') {
-      this.AuthObservable.next(true);
+      
+      this.isLoggedIn = true;
+
+      console.log('Correct credentials. Logged in:', this.isLoggedIn);
+      console.log('go to /photos');
       this.router.navigateByUrl('/photos');
-    } else {
-      this.AuthObservable.next(false);
+      return this.isLoggedIn;
     }
-    return this.AuthObservable;
+    console.log('Wrong credentials. Logged in:', this.isLoggedIn);
+    console.log('stay to /login');
+    return this.isLoggedIn
   }
-  */
 }
