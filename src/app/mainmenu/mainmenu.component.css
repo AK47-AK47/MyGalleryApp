@@ -1,0 +1,44 @@
+/** menu */
+
+.menu-container { 
+    background-color: black;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+ul {
+    margin-top: 0px;
+}
+
+li { 
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+a:hover {
+    background-color: #e10a60;
+    color:white!important;
+}
+
+.selected{
+    color:#e10a60!important;
+}
+
+    
+/* extra play with css */
+a:focus-visible {
+    outline-style:solid;
+    outline-color: #e10a60!important;
+}

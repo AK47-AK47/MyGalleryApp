@@ -1,9 +1,36 @@
+.photo-details-container{
+    display: flex;
+    align-content:center;
+    justify-content: center;
+}
+
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+.remove-photo-button{
+    color: red!important;
+    background:none;
+    border: 1px solid #bdbdbd!important;
+    border-radius: 24px;
+}
+
+.remove-photo-button:hover{
+    background-color: #ffe1e1;
+}
+
+
+/*
 .remove-photo-button{
     color: white !important;
-    background-color: black;
+    background-color: #e10a60;
     border: 1px solid rgb(43, 33, 49) !important;
 }
 
 .remove-photo-button:hover{
     opacity: 75%;
-}
+}fff5f5
+*/

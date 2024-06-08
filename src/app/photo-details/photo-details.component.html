@@ -1,4 +1,8 @@
-<div>
-    <img src="https://picsum.photos/id/{{detailsID}}/300/300" alt="Random Photo">
-    <p><button mat-stroked-button class="remove-photo-button" (click)="removeFromFavorites(detailsID)">Remove from Favorites</button></p>
+<div class="photo-details-container">
+    <div class="photo-details-container--item">
+        <img src="https://picsum.photos/id/{{detailsID}}/300/300" alt="Random Photo">
+        <div class="button-container">
+            <button mat-stroked-button class="remove-photo-button" (click)="removeFromFavorites(detailsID)">Remove from Favorites</button>
+        </div>
+    </div>
 </div>
