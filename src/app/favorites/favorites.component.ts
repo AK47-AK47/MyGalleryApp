@@ -27,34 +27,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './favorites.component.css',
 })
 export class FavoritesComponent implements OnInit, OnDestroy {
-  protected favoritePhotoIDs$: Observable<number[]> = new Observable<number[]>();
+  protected favoritePhotoIDs: number[] = [];
   private favoritePhotosIDsSubscription$: Subscription = new Subscription();
   protected isFavoriteListEmpty:boolean = true;
-  //favoritePhotoIDs: Array<number> = [];
-
-  //Attension to STore type declaration (take it from app.config.ts where is provided on all app)
-  constructor(
-    private store: Store<{ favoritePhotoState: favoritePhotoState }>
-  ) {}
+  
+  //Attention! Store type declaration (take it from app.config.ts where is provided on all app)
+  constructor(private store: Store<{ favoritePhotoState: favoritePhotoState }>) {}
 
   ngOnInit(): void {
     
-    this.favoritePhotoIDs$ = this.store.select(selectFavoritePhotoIDs);
+    //this.favoritePhotoIDs$ = this.store.select(selectFavoritePhotoIDs);
     //otherone subscription on Observable just for the console log
     this.favoritePhotosIDsSubscription$ = this.store
       .select(selectFavoritePhotoIDs)
       .subscribe((ids) => {
+        this.favoritePhotoIDs = ids;
         (ids.length > 0 ) ? (this.isFavoriteListEmpty = false) : (this.isFavoriteListEmpty = true);
         console.log('favorite Photos List is empty? :', this.isFavoriteListEmpty);
         console.log('favorite Photos IDs:', ids)
       });
-    /*
-    //MUST -> ON DESTROY unsubsribe
-    this.store.select('favoritePhotoState').subscribe((state) => {
-      console.log('favorite Photos IDs:', state.favoritePhotoList);
-      this.favoritePhotoIDs = state.favoritePhotoList;
-    });
-    */
   }
 
   removeFromFavorites(phoID: number) {

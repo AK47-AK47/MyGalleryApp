@@ -6,10 +6,11 @@ import { MatCardModule } from '@angular/material/card';
 import { Store } from '@ngrx/store';
 import { addPhotoToFavs } from '../store/favoritePhotos.actions';
 import { favoritePhotoState } from '../store/favoritePhotos.model';
+import { selectFavoritePhotoIDs } from '../store/favoritePhotos.selector';
+import { loginState } from '../store/login.reducer';
+import { selectLoginStatus } from '../store/login.selector';
 //rxjs
 import { Subscription, find, map } from 'rxjs';
-import { selectFavoritePhotoIDs } from '../store/favoritePhotos.selector';
-
 
 type PhotosGallery = {
   id: number;
@@ -33,7 +34,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
   
 
   //Attension to STore type declaration (take it from app.config.ts where is provided on all app)
-  constructor(private store: Store<{ favoritePhotoState: favoritePhotoState }>) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
     //photoIndex = new Array(100);
@@ -47,14 +48,15 @@ export class PhotosComponent implements OnInit, OnDestroy {
     console.log('Add photo #' + phoID + ' to favorites');
     this.store.dispatch(addPhotoToFavs({ photoID: phoID }));
 
+    //find the Photo that ^just add to favs^ and set it(photo's button) disabled
     let photo = this.photosList.find((photoObject) => photoObject.id === phoID);
     photo!.isDisabled = true;
 
-    //lets Observe what we add on favoritePhotoState
+    //lets Observe what we just add on favoritePhotoState
     this.favoritePhotoSubscription$ = this.store
-      .select('favoritePhotoState')
-      .subscribe((state) => {
-        console.log('favorite IDs Array:', state.favoritePhotoList);
+      .select(selectFavoritePhotoIDs)
+      .subscribe((IDs) => {
+        console.log('favorite IDs Array:', IDs);
       });
   }
 

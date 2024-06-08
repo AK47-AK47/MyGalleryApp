@@ -4,7 +4,7 @@
         
     }
     @else{
-        <div *ngFor="let id of favoritePhotoIDs$ | async">
+        <div *ngFor="let id of favoritePhotoIDs">
             <a routerLink="/photo-details/{{id}}" routerLinkActive="active" ariaCurrentWhenActive="page" class="title">
                 <mat-card class="photo-card">
                     <mat-card-header>
