@@ -1,13 +1,26 @@
-<div>
-    <p>Please login</p>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <label for="username">Username: </label>
-        <input id="username" type="text" formControlName="username">
-        <label for="password">Password: </label>
-        <input id="password" type="text" formControlName="password">
-        
-        <button type="submit">Login</button>
-    </form>
+<div class='login-container'>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class=".login-container--form">
+    <div class='login-container--item-title'>
+      <span>Login to continue</span>
+    </div>
+    <div class='login-container--item-fields'>
+      <div>
+        <div class='login-container--item-fields-user'>
+          <div class='icon'>
+            <img src='../../assets/images/user_icon.png'>
+          </div>
+          <input id="username" formControlName="username" placeholder='Username' type='text'>
+        </div>
+        <div class='login-container--item-fields-password'>
+          <div class='icon'>
+            <img src='../../assets/images/lock_icon.png'>
+          </div>
+          <input id="password" formControlName="password" placeholder='Password' type='password'>
+        </div>
+      </div>
+      <div class='login-container--item-fields-submit'>
+        <button type="submit" >Login</button>
+      </div>
+    </div>
+  </form>
 </div>
-
-<!--<button type="submit" [disabled]="!profileForm.valid">Submit</button>-->

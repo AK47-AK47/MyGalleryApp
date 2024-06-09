@@ -5,6 +5,10 @@
     z-index: 10000;/* big safe number :) */
 }
 
+.main{
+    margin-bottom: 50px;
+}
+
 .footer {
     position: fixed;
     bottom: 0;

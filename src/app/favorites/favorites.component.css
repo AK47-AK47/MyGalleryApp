@@ -1,3 +1,12 @@
+.photo-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
+  gap: 30px 5px;/* x axis, y axis*/
+  margin-top: 20px;
+}
+
 .photo-card {
   max-width: 300px;
   color:black;
@@ -8,16 +17,6 @@
   color:white;
   background-color: #e10a60;
   opacity: 75%;
-}
-
-.photo-container{
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap ;
-  justify-content: space-evenly;
-  align-content: space-around;
-  gap: 30px 5px;/* x axis, y axis*/
 }
 
 .title {

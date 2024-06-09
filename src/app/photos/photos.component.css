@@ -1,3 +1,12 @@
+.photo-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
+  gap: 30px 5px;/* x axis, y axis*/
+  margin-top: 20px;
+}
+
 .photo-card {
   max-width: 300px;
   color:black;
@@ -23,12 +32,3 @@
   color: #666666!important;
 }
 
-.photo-container{
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap ;
-  justify-content: space-evenly;
-  align-content: space-around;
-  gap: 30px 5px;/* x axis, y axis*/
-}

@@ -1,5 +1,7 @@
 /** menu */
-
+.menu{
+    border-bottom: 2px solid #e10a60;
+}
 .menu-container { 
     background-color: black;
     
@@ -9,7 +11,7 @@
 }
 
 ul {
-    margin-top: 0px;
+    margin: 0px;
 }
 
 li { 
