@@ -1,5 +1,5 @@
 import { on } from "@ngrx/store";
-import { loginAction } from "./login.actions";
+import { loginAction, logoutAction } from "./login.actions";
 import { createRehydrateReducer } from "../shared/create-rehydrate-reducer";
 
 export interface loginState {
@@ -13,5 +13,6 @@ const initialState:loginState = {
 export const loginReducer = createRehydrateReducer(
   {key: "loginStatus"},
   initialState,
-  on(loginAction, (state, action) => ({ ...state, isLoggedIn:true }))
+  on(loginAction, (state, action) => ({ ...state, isLoggedIn:true })),
+  on(logoutAction, (state, action)=> ({...action, isLoggedIn:false}))
 );

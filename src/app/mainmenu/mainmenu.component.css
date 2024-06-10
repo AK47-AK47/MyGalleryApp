@@ -4,10 +4,10 @@
 }
 .menu-container { 
     background-color: black;
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 ul {
@@ -43,4 +43,39 @@ a:hover {
 a:focus-visible {
     outline-style:solid;
     outline-color: #e10a60!important;
+}
+
+/* log out button */
+.logout{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding: 10px;
+    z-index:10001;
+}
+
+.logout-button{
+    align-self:flex-end;
+    color: #e10a60;
+    background-color:transparent;
+    border: 1px solid #e10a60;
+    border-radius: 50px;
+    padding: 5px 10px;
+    transition-property: color, background-color;
+    transition-duration: 0.2s;
+}
+
+.logout-button:hover{
+    color: white;
+    background-color: #e10a60;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 0.2s;
+}
+
+.logout-button:focus{
+    /*DC6180*/
+    outline: #e10a60 solid 1px;
+    transition-property: outline;
+    transition-duration: 0.2s;
 }

@@ -1,0 +1,41 @@
+.error404-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    background-color: #35394a;
+}
+
+.error404-image {
+    width: 420px;
+    
+}
+
+.error404-text {
+    padding: 40px;
+    color:#d3e8f9;
+}
+
+.error404-text h1 {
+    font-size: 35px;
+    font-weight: 700;
+    color: #e10a60;
+}
+
+.error404-text a{
+    color: #e10a60;
+}
+
+/*  for mobile devices */
+@media screen and (max-width:600px) {
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .image{
+        width: 50%;
+        align-self: center;
+    }
+}

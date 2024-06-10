@@ -9,4 +9,7 @@
             </li>
         </ul>
     </nav>
+    <div class="logout">
+        <button *ngIf="isLoggedIn" class='logout-button' type="submit" (click)="logout()">Logout</button>
+    </div>
 </div>

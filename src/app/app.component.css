@@ -1,12 +1,13 @@
 .header {
-    position: -webkit-sticky; /* equired for Safari */
-    position: sticky;
-    top: 0; /* required for position sticky */
+    position: fixed;
+    top: 0; /* required for position fixed */
     z-index: 10000;/* big safe number :) */
+    width: 100%;
+   
 }
 
 .main{
-    margin-bottom: 50px;
+    height: 100%;
 }
 
 .footer {
@@ -17,5 +18,6 @@
     color: white;
     background-color: black;
     padding: 5px 10px;
+    border-top: 2px solid #e10a60;
 }
 
