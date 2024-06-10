@@ -4,12 +4,11 @@
     align-items: center;
     flex-direction: row;
     height: 100%;
-    background-color: #35394a;
 }
 
 .error404-image {
-    width: 420px;
-    
+    width: 50%;
+    padding: 20px;
 }
 
 .error404-text {
@@ -29,12 +28,12 @@
 
 /*  for mobile devices */
 @media screen and (max-width:600px) {
-    .container{
+    .error404-container{
         display: flex;
         flex-direction: column-reverse;
     }
     
-    .image{
+    .error404-image{
         width: 50%;
         align-self: center;
     }

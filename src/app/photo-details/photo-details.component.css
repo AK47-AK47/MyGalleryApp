@@ -11,12 +11,14 @@
 
 .remove-photo-button{
     color: red!important;
-    background:none;
-    border: 1px solid #bdbdbd!important;
+    background-color:black;
+    border: 1px solid red!important;
     border-radius: 24px;
     margin: 10px;
 }
 
 .remove-photo-button:hover{
-    background-color: #ffe1e1;
+    color: black!important;
+    background-color: red;
+    border: 1px solid black!important;
 }
